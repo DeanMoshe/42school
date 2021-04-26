@@ -1,0 +1,6 @@
+Credentials cache: API:6B02428C-5EC9-46FC-B1B0-96A59C4E0F8C
+        Principal: cgrayson@MSK.21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Feb 15 18:10:05 2021  Feb 16 04:10:05 2021  krbtgt/MSK.21-SCHOOL.RU@MSK.21-SCHOOL.RU
+Feb 15 18:10:07 2021  Feb 16 04:10:05 2021  HTTP/student-storage.msk.21-school.ru@MSK.21-SCHOOL.RU
