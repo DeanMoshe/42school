@@ -32,16 +32,16 @@ OBJ_B		=	$(patsubst %.c,%.o,$(LIST_B))
 RM			= rm -f
 
 COMPILER	=	gcc
-OPTFLAGS	=	-O2
+AR			=	ar rcs
 CFLAGS		=	-Wall -Wextra -Werror
 
 all:		${NAME}
 
 ${NAME}:	${OBJ}
-			ar rcs ${NAME} $?
+			${AR} ${NAME} $?
 
 %.o:		%.c
-			${COMPILER} ${CFLAGS} ${OPTFLAGS} -c $< -o ${<:.c=.o}
+			${COMPILER} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 bonus:		
 			@make OBJ="${OBJ_B}" all
@@ -54,8 +54,10 @@ fclean:		clean
 
 re:			fclean all
 
+so:
+	$(CC) -fPIC $(CFLAGS) $(SRC)
+	gcc -shared -o libft.so $(OBJ)
+
 make:		all
 
 .PHONY:		all clean fclean re make
-
-.SILENT:
