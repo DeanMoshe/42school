@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 14:33:16 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/05/09 18:49:42 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/02/20 17:53:44 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/05/10 14:27:05 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strncpy_bonus(char *dst, const char *src, size_t len)
 {
-	size_t		len;
+	size_t		i;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	i = 0;
+	while (i < len)
+	{
+		if (src[i] != '\0')
+			dst[i] = src[i];
+		else
+			dst[i] = '\0';
+		i++;
+	}
+	return (dst);
 }

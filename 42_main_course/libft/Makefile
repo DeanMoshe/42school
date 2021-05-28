@@ -24,7 +24,11 @@ LIST		= 	ft_strncmp.c		ft_isalpha.c		ft_memchr.c			ft_strchr.c\
 
 LIST_B		=	ft_lstadd_back.c	ft_lstclear.c		ft_lstiter.c		ft_lstmap.c\
 				ft_lstsize.c		ft_lstadd_front.c	ft_lstdelone.c		ft_lstlast.c\
-				ft_lstnew.c
+				ft_lstnew.c			ft_btreenew_bonus.c	ft_btree_apply_infix_bonus.c\
+				ft_btree_apply_prefix_bonus.c			ft_btree_apply_suffix_bonus.c\
+				ft_islower_bonus.c	ft_isupper_bonus.c	ft_strcat_bonus.c	ft_strcmp_bonus.c\
+				ft_strcpy_bonus.c	ft_strncat_bonus.c	ft_strncpy_bonus.c	ft_atol_bonus.c\
+				ft_atoll_bonus.c
 
 OBJ			=	$(patsubst %.c,%.o,$(LIST))
 OBJ_B		=	$(patsubst %.c,%.o,$(LIST_B))
@@ -35,28 +39,24 @@ COMPILER	=	gcc
 AR			=	ar rcs
 CFLAGS		=	-Wall -Wextra -Werror
 
-all:		${NAME}
+all:		$(NAME)
 
-${NAME}:	${OBJ}
-			${AR} ${NAME} $?
+$(NAME):	$(OBJ)
+			$(AR) $(NAME) $?
 
 %.o:		%.c
-			${COMPILER} ${CFLAGS} -c $< -o ${<:.c=.o}
+			$(COMPILER) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 bonus:		
-			@make OBJ="${OBJ_B}" all
+			@make OBJ="$(OBJ_B)" all
 
 clean:		
-			${RM} ${OBJ} ${OBJ_B}
+			$(RM) $(OBJ) $(OBJ_B)
 
 fclean:		clean
-			${RM} ${NAME}
+			$(RM) $(NAME)
 
 re:			fclean all
-
-so:
-	$(CC) -fPIC $(CFLAGS) $(SRC)
-	gcc -shared -o libft.so $(OBJ)
 
 make:		all
 

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/22 14:51:33 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/04/22 14:51:33 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/04/22 16:01:34 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/04/22 16:01:34 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+int	ft_isupper_bonus(int c)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	return (c >= 65 && c <= 90);
 }

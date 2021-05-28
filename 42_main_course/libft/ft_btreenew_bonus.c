@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_btreenew_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 14:33:16 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/05/09 18:49:42 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/05/10 13:24:56 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/05/10 14:05:51 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+t_btree	*ft_btreenew_bonus(void *item)
 {
-	size_t		len;
+	t_btree	*res;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	res = (t_btree *)malloc(sizeof(t_btree));
+	if (!res)
+		return (NULL);
+	res->left = 0;
+	res->right = 0;
+	res->item = item;
+	return (res);
 }
