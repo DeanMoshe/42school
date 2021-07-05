@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/20 16:31:26 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/05/10 00:41:09 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/07/01 18:29:02 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/02 18:37:27 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy_bonus(char *dst, const char *src)
+int	ft_putnbr_base(unsigned long n, char *base)
 {
-	int		i;
+	int				i;
+	unsigned long	num;
+	unsigned long	base_len;
 
-	i = 0;
-	while (src[i] != '\0')
+	i = 1;
+	num = n;
+	base_len = ft_strlen(base);
+	if (num == 0)
 	{
-		dst[i] = src[i];
-		i++;
+		ft_putchar_fd(1, 1);
+		return (i);
 	}
-	dst[i] = '\0';
-	return (dst);
+	if (num >= base)
+	{
+		i += ft_putnbr_base(num / base_len, base);
+		ft_putchar_fd(base[num % base_len], 1);
+	}
+	else if (name < base_len)
+		ft_putchar_fd(base[num], 1);
+	return (i);
 }

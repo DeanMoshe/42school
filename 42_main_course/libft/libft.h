@@ -76,21 +76,25 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
 				void (*del)(void *));
 
-int				ft_islower_bonus(int c);
-int				ft_isupper_bonus(int c);
-char			*ft_strcpy_bonus(char *dst, const char *src);
-char			*ft_strncpy_bonus(char *dst, const char *src, size_t len);
-char			*ft_strcat_bonus(char *dest, const char *src);
-int				ft_strcmp_bonus(const char *s1, const char *s2);
-char			*ft_strncat_bonus(char *dest, const char *src, size_t n);
-t_btree			*ft_btreenew_bonus(void *item);
-void			ft_btree_apply_infix_bonus(t_btree *root, \
+int				ft_islower(int c);
+int				ft_isupper(int c);
+char			*ft_strcpy(char *dst, const char *src);
+char			*ft_strncpy(char *dst, const char *src, size_t len);
+char			*ft_strcat(char *dest, const char *src);
+int				ft_strcmp(const char *s1, const char *s2);
+char			*ft_strncat(char *dest, const char *src, size_t n);
+t_btree			*ft_btreenew(void *item);
+void			ft_btree_apply_infix(t_btree *root, \
 				void (*applyf)(void *));
-void			ft_btree_apply_prefix_bonus(t_btree *root, \
+void			ft_btree_apply_prefix(t_btree *root, \
 				void (*applyf)(void *));
-void			ft_btree_apply_suffix_bonus(t_btree *root, \
+void			ft_btree_apply_suffix(t_btree *root, \
 				void (*applyf)(void *));
-long			ft_atol_bonus(const char *nptr);
-long long		ft_atoll_bonus(const char *nptr);
+long			ft_atol(const char *nptr);
+long long		ft_atoll(const char *nptr);
+int				ft_numlen(long n);
+char			*ft_uitoa(unsigned int n);
+int				ft_numlen_base(unsigned long n, int base);
+int				ft_putnbr_base(unsigned long n, char *base);
 
 #endif

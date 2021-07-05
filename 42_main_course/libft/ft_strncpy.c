@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 00:39:29 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/05/10 14:26:36 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/02/20 17:53:44 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/01 18:09:19 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp_bonus(const char *s1, const char *s2)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	int	i;
+	size_t		i;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	while (i < len)
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (src[i] != '\0')
+			dst[i] = src[i];
+		else
+			dst[i] = '\0';
 		i++;
 	}
-	return (0);
+	return (dst);
 }

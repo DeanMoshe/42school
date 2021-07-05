@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 12:49:54 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/05/10 13:03:36 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/07/01 18:00:16 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/01 18:01:39 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat_bonus(char *dest, const char *src)
+char	*ft_uitoa(unsigned int n)
 {
-	size_t	i;
-	size_t	l;
+	int			len;
+	char		*res;
+	long		nbr;
 
-	i = 0;
-	l = ft_strlen(dest);
-	while (src[i] != '\0')
+	nbr = n;
+	len = ft_numlen(nbr);
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	if (!res)
+		return (NULL);
+	if (nbr < 0)
+		nbr = -nbr;
+	res[len] = '\0';
+	len--;
+	while (len >= 0)
 	{
-		dest[l + i] = src[i];
-		i++;
+		res[len] = nbr % 10 + '0';
+		nbr = nbr / 10;
+		len--;
 	}
-	dest[l + i] = '\0';
-	return (dest);
+	if (n < 0)
+		res[0] = '-';
+	return (res);
 }

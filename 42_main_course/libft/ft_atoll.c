@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/20 17:53:44 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/05/10 14:27:05 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/05/12 19:46:55 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/01 18:07:15 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy_bonus(char *dst, const char *src, size_t len)
+long long	ft_atoll(const char *nptr)
 {
-	size_t		i;
+	long long	i;
+	int			sign;
+	long long	nbr;
 
 	i = 0;
-	while (i < len)
+	sign = 1;
+	nbr = 0;
+	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == 43 || nptr[i] == 45)
 	{
-		if (src[i] != '\0')
-			dst[i] = src[i];
-		else
-			dst[i] = '\0';
+		if (nptr[i] == 45)
+			sign = -1;
 		i++;
 	}
-	return (dst);
+	while (nptr[i] > 47 && nptr[i] < 58)
+	{
+		nbr = nbr * 10 + nptr[i] - 48;
+		i++;
+	}
+	return (nbr * sign);
 }

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree_apply_suffix_bonus.c                      :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 13:37:04 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/05/10 13:37:48 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/05/10 12:56:52 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/01 18:08:54 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_btree_apply_suffix_bonus(t_btree *root, void (*applyf)(void *))
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
-	if (!root)
-		return ;
-	if (root->left)
-		ft_btree_apply_suffix_bonus(root->left, applyf);
-	if (root->right)
-		ft_btree_apply_suffix_bonus(root->right, applyf);
-	applyf(root->item);
+	size_t	i;
+	size_t	l;
+
+	i = 0;
+	l = ft_strlen(dest);
+	while (i < n && src[i] != '\0')
+	{
+		dest[l + i] = src[i];
+		i++;
+	}
+	dest[l + i] = '\0';
+	return (dest);
 }

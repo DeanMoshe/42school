@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree_apply_prefix_bonus.c                      :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 13:34:04 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/05/10 13:34:52 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/02/20 16:31:26 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/01 18:08:42 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_btree_apply_prefix_bonus(t_btree *root, void (*applyf)(void *))
+char	*ft_strcpy(char *dst, const char *src)
 {
-	if (!root)
-		return ;
-	applyf(root->item);
-	if (root->left)
-		ft_btree_apply_prefix_bonus(root->left, applyf);
-	if (root->right)
-		ft_btree_apply_prefix_bonus(root->right, applyf);
+	int		i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_islower_bonus(int c)
+int	ft_islower(int c)
 {
 	return (c >= 97 && c <= 122);
 }
