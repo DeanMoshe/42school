@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btreenew.c                                      :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 13:24:56 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:53:47 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/05/10 00:39:29 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/01 18:08:29 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_btree	*ft_btreenew(void *item)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_btree	*res;
+	int	i;
 
-	res = (t_btree *)malloc(sizeof(t_btree));
-	if (!res)
-		return (NULL);
-	res->left = 0;
-	res->right = 0;
-	res->item = item;
-	return (res);
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
 }

@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btreenew.c                                      :+:      :+:    :+:   */
+/*   ft_flags_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 13:24:56 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:53:47 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/07/01 11:41:16 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/07 19:06:22 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
-t_btree	*ft_btreenew(void *item)
+int	ft_space_flag(t_print *tab, int pos)
 {
-	t_btree	*res;
-
-	res = (t_btree *)malloc(sizeof(t_btree));
-	if (!res)
-		return (NULL);
-	res->left = 0;
-	res->right = 0;
-	res->item = item;
-	return (res);
+	pos++;
+	tab->space = 1;
+	return (pos);
 }

@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btreenew.c                                      :+:      :+:    :+:   */
+/*   ft_btree_apply_infix.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 13:24:56 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:53:47 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/05/10 13:35:42 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/07 19:55:45 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_btree	*ft_btreenew(void *item)
+void	ft_btree_apply_infix(t_btree *root, void (*applyf)(void *))
 {
-	t_btree	*res;
-
-	res = (t_btree *)malloc(sizeof(t_btree));
-	if (!res)
-		return (NULL);
-	res->left = 0;
-	res->right = 0;
-	res->item = item;
-	return (res);
+	if (!root)
+		return ;
+	if (root->left)
+		ft_btree_apply_infix(root->left, applyf);
+	applyf(root->item);
+	if (root->right)
+		ft_btree_apply_infix(root->right, applyf);
 }

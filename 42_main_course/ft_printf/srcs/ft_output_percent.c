@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btreenew.c                                      :+:      :+:    :+:   */
+/*   ft_output_percent.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 13:24:56 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:53:47 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/07/01 14:36:29 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/07 18:26:08 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
-t_btree	*ft_btreenew(void *item)
+void	ft_output_percent(t_print *tab)
 {
-	t_btree	*res;
-
-	res = (t_btree *)malloc(sizeof(t_btree));
-	if (!res)
-		return (NULL);
-	res->left = 0;
-	res->right = 0;
-	res->item = item;
-	return (res);
+	if (tab->perc)
+		tab->zero = 0;
+	while (tab->zero && !tab->minus && --tab->width > 0)
+		tab->len += write(1, "0", 1);
+	while (!tab->minus && --tab->width > 0)
+		tab->len += write(1, " ", 1);
+	tab->len += write(1, "%", 1);
+	while (tab->minus && --tab->width > 0)
+		tab->len += write(1, " ", 1);
 }

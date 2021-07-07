@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btreenew.c                                      :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 13:24:56 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:53:47 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/02/20 17:53:44 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/01 18:09:19 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_btree	*ft_btreenew(void *item)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	t_btree	*res;
+	size_t		i;
 
-	res = (t_btree *)malloc(sizeof(t_btree));
-	if (!res)
-		return (NULL);
-	res->left = 0;
-	res->right = 0;
-	res->item = item;
-	return (res);
+	i = 0;
+	while (i < len)
+	{
+		if (src[i] != '\0')
+			dst[i] = src[i];
+		else
+			dst[i] = '\0';
+		i++;
+	}
+	return (dst);
 }

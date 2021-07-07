@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btreenew.c                                      :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 13:24:56 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:53:47 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/07/06 18:12:54 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/06 18:17:38 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_btree	*ft_btreenew(void *item)
+char	*ft_itoa_base(char *str, unsigned long n, int base, int c)
 {
-	t_btree	*res;
+	int	i;
 
-	res = (t_btree *)malloc(sizeof(t_btree));
-	if (!res)
-		return (NULL);
-	res->left = 0;
-	res->right = 0;
-	res->item = item;
-	return (res);
+	i = 0;
+	if (n == 0)
+		str[i++] = '0';
+	while (n > 0)
+	{
+		if (base > 10 && (n % base >= 10))
+			str[i++] = (n % base) - 10 + c;
+		else
+			str[i++] = (n % base) + '0';
+		n /= base;
+	}
+	str[i] = '\0';
+	return (str);
 }

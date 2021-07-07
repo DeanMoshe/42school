@@ -6,7 +6,7 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:29:02 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/02 18:37:27 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/07 20:10:12 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	ft_putnbr_base(unsigned long n, char *base)
 		ft_putchar_fd(1, 1);
 		return (i);
 	}
-	if (num >= base)
+	if (num >= base_len)
 	{
 		i += ft_putnbr_base(num / base_len, base);
 		ft_putchar_fd(base[num % base_len], 1);
 	}
-	else if (name < base_len)
+	else if (num < base_len)
 		ft_putchar_fd(base[num], 1);
 	return (i);
 }

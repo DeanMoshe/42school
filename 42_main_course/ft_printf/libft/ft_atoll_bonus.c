@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btreenew.c                                      :+:      :+:    :+:   */
+/*   ft_atoll_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 13:24:56 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:53:47 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/05/12 19:46:55 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/05/12 19:54:07 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_btree	*ft_btreenew(void *item)
+long long	ft_atoll_bonus(const char *nptr)
 {
-	t_btree	*res;
+	long long	i;
+	int			sign;
+	long long	nbr;
 
-	res = (t_btree *)malloc(sizeof(t_btree));
-	if (!res)
-		return (NULL);
-	res->left = 0;
-	res->right = 0;
-	res->item = item;
-	return (res);
+	i = 0;
+	sign = 1;
+	nbr = 0;
+	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == 43 || nptr[i] == 45)
+	{
+		if (nptr[i] == 45)
+			sign = -1;
+		i++;
+	}
+	while (nptr[i] > 47 && nptr[i] < 58)
+	{
+		nbr = nbr * 10 + nptr[i] - 48;
+		i++;
+	}
+	return (nbr * sign);
 }
