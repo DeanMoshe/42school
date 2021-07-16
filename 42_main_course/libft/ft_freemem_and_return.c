@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_freemem_and_return.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 14:33:16 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/15 19:46:21 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/07/16 15:28:28 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/16 15:28:30 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_freemem_and_return(char **str)
 {
-	size_t		len;
-
-	if (!s)
-		return (0);
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	free(*str);
+	return (NULL);
 }

@@ -97,5 +97,6 @@ char			*ft_uitoa(unsigned int n);
 int				ft_numlen_base(unsigned long n, int base);
 int				ft_putnbr_base(unsigned long n, char *base);
 char			*ft_itoa_base(char *str, unsigned long n, int base, int c);
+char			*ft_free_and_return(char **str);
 
 #endif
