@@ -6,7 +6,7 @@
 #    By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/07 18:31:19 by cgrayson          #+#    #+#              #
-#    Updated: 2021/07/07 19:47:14 by cgrayson         ###   ########.fr        #
+#    Updated: 2021/07/16 17:06:51 by cgrayson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ HEAD_PATH	= includes/
 SRCS_FILES	= ./srcs/ft_printf.c			./srcs/ft_format.c				./srcs/ft_checks.c\
 			./srcs/ft_flags_1.c				./srcs/ft_flags_2.c				./srcs/ft_output_char.c\
 			./srcs/ft_output_hexa_int.c		./srcs/ft_output_int.c			./srcs/ft_output_percent.c\
-			./srcs/ft_output_pointer.c		./srcs/ft_output_string.c		./srcs/ft_alignment.c
+			./srcs/ft_output_pointer.c		./srcs/ft_output_string.c		./srcs/ft_alignment.c\
+			./srcs/ft_tab.c
 
 SRCS_OBJS	= ${SRCS_FILES:.c=.o}
 

@@ -6,12 +6,12 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:59:33 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:05:25 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/19 10:21:00 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../includes/libft.h"
+#include "../libft/libft.h"
 
 void	ft_check_precision(t_print *tab)
 {
@@ -46,7 +46,7 @@ int	ft_check_sign(t_print *tab, int i)
 
 int	ft_check_flag(char c)
 {
-	if (c == '.' || c =='-')
+	if (c == '.' || c == '-')
 		return (1);
 	return (0);
 }	

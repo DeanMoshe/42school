@@ -6,7 +6,7 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:00:16 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 20:06:58 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/19 12:14:52 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*ft_uitoa(unsigned int nbr)
 		return (NULL);
 	res[len--] = '\0';
 	if (nbr == 0)
-		res[len] = '0';
-	while (len > 0)
+		res[len] = 0 + '0';
+	while (nbr > 0)
 	{
 		res[len--] = nbr % 10 + '0';
 		nbr = nbr / 10;

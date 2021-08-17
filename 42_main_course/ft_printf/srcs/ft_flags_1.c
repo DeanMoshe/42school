@@ -6,12 +6,12 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 21:25:29 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/01 11:57:10 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/19 14:46:55 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../includes/libft.h"
+#include "../libft/libft.h"
 
 int	ft_zero_flag(t_print *tab, const char *format, int pos)
 {
@@ -89,9 +89,9 @@ int	ft_asterisk_flag(t_print *tab, const char *format, int pos)
 		ft_check_precision(tab);
 	}
 	if (format[pos] == '.')
-		ft_precision_flag(tab, format, pos);
+		pos = ft_precision_flag(tab, format, pos);
 	if (format[pos] == '*')
-		ft_asterisk_flag(tab, format, pos);
+		pos = ft_asterisk_flag(tab, format, pos);
 	while (format[pos] == '*')
 		pos++;
 	return (pos);
@@ -107,7 +107,7 @@ int	ft_width_flag(t_print *tab, const char *format, int pos)
 		i = ft_atoi(&format[pos]);
 		pos += ft_numlen(i);
 	}
-	tab->width = 1;
+	tab->width = i;
 	if (format[pos] == '.')
 		pos = ft_precision_flag(tab, format, pos);
 	return (pos);

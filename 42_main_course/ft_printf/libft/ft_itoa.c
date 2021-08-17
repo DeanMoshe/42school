@@ -25,15 +25,14 @@ char	*ft_itoa(int n)
 		return (NULL);
 	if (nbr < 0)
 		nbr = -nbr;
-	res[len] = '\0';
-	len--;
+	res[len--] = '\0';
 	while (len >= 0)
 	{
 		res[len] = nbr % 10 + '0';
 		nbr = nbr / 10;
 		len--;
 	}
-	if (n < 0)
+	if (n < 0 && n != INT_MIN)
 		res[0] = '-';
 	return (res);
 }

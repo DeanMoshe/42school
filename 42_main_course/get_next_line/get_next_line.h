@@ -6,7 +6,7 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 16:42:06 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/15 19:52:50 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/22 11:15:36 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
+#  define BUFFER_SIZE 10
 # endif
 
-char	*ft_free_and_return(char **str);
+void	ft_freemem(char **str);
 char	*ft_get_line(char *str);
-int		ft_update_static(char **saved, char *res);
+char	*ft_update_static(char *saved, char *res);
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(char *s);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
 

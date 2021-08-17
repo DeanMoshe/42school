@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 12:49:54 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/05/10 13:03:36 by cgrayson         ###   ########.fr       */
+/*   Created: 2021/07/16 16:22:41 by cgrayson          #+#    #+#             */
+/*   Updated: 2021/07/16 16:24:26 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** Allocates with malloc() and returns a “fresh” string ending with ’\0’.
+** Each character of the string is initialized at ’\0’.
+** If the allocation fails the function returns NULL.
+*/
+
 #include "libft.h"
 
-char	*ft_strcat_bonus(char *dest, const char *src)
+char	*ft_strnew(size_t size)
 {
-	size_t	i;
-	size_t	l;
+	char	*str;
 
-	i = 0;
-	l = ft_strlen(dest);
-	while (src[i] != '\0')
-	{
-		dest[l + i] = src[i];
-		i++;
-	}
-	dest[l + i] = '\0';
-	return (dest);
+	str = (char *)malloc(sizeof(char) * size + 1);
+	if (!str)
+		return (NULL);
+	str[size] = '\0';
+	while (size--)
+		str[size] = '\0';
+	return (str);
 }

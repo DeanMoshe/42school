@@ -6,7 +6,7 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:24:01 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/01 18:26:55 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/19 11:37:30 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_numlen_base(unsigned long n, int base)
 	}
 	while (n > 0)
 	{
-		n = n / base;
+		n /= base;
 		len++;
 	}
 	return (len);

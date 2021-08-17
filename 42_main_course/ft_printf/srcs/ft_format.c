@@ -6,28 +6,28 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 19:56:03 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:00:44 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/17 15:20:29 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../includes/libft.h"
+#include "../libft/libft.h"
 
 int	ft_get_type(t_print *tab, const char *format, int pos)
 {
 	if (format[pos] == 'c')
 		ft_output_char(tab);
-	if (format[pos] == 's')
+	else if (format[pos] == 's')
 		ft_output_string(tab);
-	if (format[pos] == 'd' || format[pos] == 'i')
+	else if (format[pos] == 'd' || format[pos] == 'i')
 		ft_output_int(tab);
-	if (format[pos] == 'u')
+	else if (format[pos] == 'u')
 		ft_output_unsigned_int(tab);
-	if (format[pos] == 'p')
+	else if (format[pos] == 'p')
 		ft_output_pointer(tab);
-	if (format[pos] == 'x' || format[pos] == 'X')
+	else if (format[pos] == 'x' || format[pos] == 'X')
 		ft_output_hexa_int(tab, format[pos] - 23);
-	if (format[pos] == '%')
+	else if (format[pos] == '%')
 		ft_output_percent(tab);
 	return (pos);
 }

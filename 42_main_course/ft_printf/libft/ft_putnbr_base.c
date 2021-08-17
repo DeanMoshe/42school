@@ -6,7 +6,7 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:29:02 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 20:09:55 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/17 16:33:25 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_putnbr_base(unsigned long n, char *base)
 	base_len = ft_strlen(base);
 	if (num == 0)
 	{
-		ft_putchar_fd(1, 1);
+		ft_putchar_fd('0', 1);
 		return (i);
 	}
 	if (num >= base_len)

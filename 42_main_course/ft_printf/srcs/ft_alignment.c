@@ -6,12 +6,12 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 16:15:38 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:08:01 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/17 15:20:33 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../includes/libft.h"
+#include "../libft/libft.h"
 
 void	ft_right_idupx(t_print *tab)
 {
@@ -89,5 +89,5 @@ void	ft_right_zero(t_print *tab)
 		}
 	}
 	else if (tab->pnt)
-		ft_write_zero_pnt(tab);
+		ft_write_zero_point(tab);
 }

@@ -6,9 +6,23 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:08:52 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:36:25 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/19 12:19:44 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** args - arg to print out
+** width - width
+** prc - precision
+** zero - zero padding
+** pnt - "."
+** minus - "-"
+** len - total_length (return value)
+** sign - positive or negative number
+** is_zero - is zero number
+** perc - "%"
+** space - space flag ' '
+*/
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
@@ -18,7 +32,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <limits.h>
-# include "libft.h"
+# include "../libft/libft.h"
 
 typedef struct s_print
 {
@@ -58,7 +72,7 @@ void	ft_write_pnt(t_print *tab);
 int		ft_update_tab_string(t_print *tab, char *s, int len);
 void	ft_output_int(t_print *tab);
 void	ft_output_unsigned_int(t_print *tab);
-void	ft_write_zero_pnt(t_print *tab);
+void	ft_write_zero_point(t_print *tab);
 void	ft_write_zero(t_print *tab);
 void	ft_output_pointer(t_print *tab);
 void	ft_write_null_ptr(t_print *tab);

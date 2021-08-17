@@ -6,7 +6,7 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 16:42:00 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/15 20:31:20 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/21 19:33:45 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(char *s)
 {
 	size_t	len;
 	char	*str;
@@ -62,28 +62,31 @@ char	*ft_strdup(const char *s)
 	return (str);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	len;
 	char	*res;
-	int		i;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (!s1 && s2)
-		return (ft_strdup(s2));
-	if (s1 && !s2)
-		return (ft_strdup(s1));
+	j = 0;
 	if (!s1 && !s2)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	res = (char *)malloc(sizeof(char) * (len + 1));
 	if (!res)
 		return (NULL);
-	while (*s1)
-		res[i++] = *s1++;
-	while (*s2)
-		res[i++] = *s2++;
-	res[i] = '\0';
+	if (s1)
+	{
+		while (s1[i])
+			res[j++] = s1[i++];
+		i = 0;
+	}
+	while (s2[i])
+		res[j++] = s2[i++];
+	res[j] = '\0';
+	ft_freemem(&s1);
 	return (res);
 }
 

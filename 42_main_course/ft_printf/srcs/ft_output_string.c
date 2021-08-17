@@ -6,21 +6,12 @@
 /*   By: cgrayson <cgrayson@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 14:46:09 by cgrayson          #+#    #+#             */
-/*   Updated: 2021/07/07 19:37:15 by cgrayson         ###   ########.fr       */
+/*   Updated: 2021/07/17 15:20:07 by cgrayson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../includes/libft.h"
-
-int	ft_update_tab_string(t_print *tab, char *s, int len)
-{
-	if (s)
-		len = ft_strlen(s);
-	if (tab->prc > 0 && len > tab->prc)
-		len = tab->prc;
-	return (len);
-}
+#include "../libft/libft.h"
 
 void	ft_write_pnt(t_print *tab)
 {
@@ -39,7 +30,7 @@ void	ft_output_string(t_print *tab)
 	len = 0;
 	s = va_arg(tab->args, char *);
 	if (!s)
-		s = "(NULL)";
+		s = "(null)";
 	if (s && tab->pnt == 1 && tab->prc == 0)
 		return (ft_write_pnt(tab));
 	len = ft_update_tab_string(tab, s, len);
